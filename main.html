@@ -36,47 +36,7 @@
 
 <script>
 //Your code goes here 
-const slider = document.querySelector('.items');
-let isDown = false;
-let startX = 0;
-let scrollLeft = 0;
 
-slider.addEventListener('mousedown', (e) => {
-  isDown = true;
-  slider.classList.add('active');
-  startX = e.pageX;
-  scrollLeft = slider.scrollLeft;
-});
-
-slider.addEventListener('mouseleave', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
-
-slider.addEventListener('mouseup', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
-
-slider.addEventListener('mousemove', (e) => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x = e.pageX;
-  const walk = (x - startX) * 1.5; 
-  slider.scrollLeft = scrollLeft - walk;
-});
-if (window.Cypress) {
-  slider.addEventListener('mouseup', () => {
-    const fakeMove = new MouseEvent('mousemove', {
-      view: window,
-      bubbles: true,
-      cancelable: true,
-      pageX: startX - 200,
-      pageY: 391,
-    });
-    slider.dispatchEvent(fakeMove);
-  });
-}
 </script>
 
   </body>
