@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let isDown = false;
   let startX = 0;
-  let scrollLeft = 0;
+  let scrollLeft = 1;
 
   slider.addEventListener('mousedown', (e) => {
     isDown = true;
